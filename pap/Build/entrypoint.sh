@@ -24,9 +24,9 @@
 "
 
     cd /opt/pap
-    unzip PingDataGovernance-PAP-8.0.0.0.zip
+    unzip PingDataGovernance-PAP-8.0.0.0.zip -d /opt/out
 
-    cd /opt/pap/PingDataGovernance-PAP || echo "Unable to cd to the PAP bin directory"
+    cd /opt/out/PingDataGovernance-PAP || echo "Unable to cd to the PAP bin directory"
 
     echo "
 ######################
@@ -38,9 +38,9 @@ Running Command: bin/setup demo --licenseKeyFile /opt/pap/PingDataGovernance-PAP
 
     echo "
     #################################"
-    grep "Authentication.SharedSecret:" /opt/pap/PingDataGovernance-PAP/config/configuration.yml
+    grep "Authentication.SharedSecret:" /opt/out/PingDataGovernance-PAP/config/configuration.yml
     echo "
     #################################
     "
 
-    java -Xmx1G -XX:+UseG1GC -Dsymphonic.Database.H2.Path=/opt/pap/PingDataGovernance-PAP/admin-point-application/db/ -classpath /opt/pap/PingDataGovernance-PAP/admin-point-application/lib/*:/opt/pap/PingDataGovernance-PAP/admin-point-application/bin/* com.symphonicsoft.adminpoint.AdministrationPointApplication server /opt/pap/PingDataGovernance-PAP/config/configuration.yml
+    java -Xmx1G -XX:+UseG1GC -Dsymphonic.Database.H2.Path=/opt/out/PingDataGovernance-PAP/admin-point-application/db/ -classpath /opt/out/PingDataGovernance-PAP/admin-point-application/lib/*:/opt/out/PingDataGovernance-PAP/admin-point-application/bin/* com.symphonicsoft.adminpoint.AdministrationPointApplication server /opt/out/PingDataGovernance-PAP/config/configuration.yml
